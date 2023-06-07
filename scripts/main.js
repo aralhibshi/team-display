@@ -6,7 +6,8 @@ const groups = [
     {names: ['Mariam Merza', 'Jawaher', 'Aysha', 'Heba']},
     {names: ['Ruqaya', 'Zainab Saeed', 'Maryam Alnajem']},
     {names: ['Salman Hamad', 'Saud', 'Ebrahim']},
-    {names: ['Salman Murtaza', 'Ali', 'Manar']}
+    {names: ['Salman Murtaza', 'Ali', 'Manar']},
+    {names: ['Ahmed 😎', 'Haya 😎', 'Saad 😎', 'George 😎']}
 ]
 let count = 1
 const body = $('body')
@@ -16,11 +17,15 @@ const div = $('div')
 
 body.append('<button>Start</button>')
 const button = $('button')
+const audio = document.querySelector('audio')
 
 button.css({'height': '10vh', 'width': '10.5vw'})
 
 button.on('click', () => {
-    if (count <= 8) {
+    audio.pause()
+    audio.currentTime = 0
+
+    if (count <= 9) {
         $('.start').remove()
         div.html('')
         button
@@ -36,7 +41,7 @@ button.on('click', () => {
     } else {
         div.html('<h1>Done</h1><img src="./images/dance.gif" alt="Dance">')
         $('p').css('top', '20vh')
-        document.querySelector('audio').play()
+        audio.play()
         button.html('Start')
         return count = 1
     }
